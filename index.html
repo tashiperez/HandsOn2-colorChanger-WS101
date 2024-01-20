@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Color Changer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: black;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 80%;
+            height: 80%;
+            background-color: bisque; 
+            border-radius: 10%;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            padding: 5%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #colorButton {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #colorButton:hover {
+            background-color: blue;
+        }
+
+        #colorDiv {
+            margin-top: 20px;
+            padding: 60px;
+            font-size: 24px;
+            border-radius: 15px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #colorDiv.blue {
+            background-color: blue;
+        }
+
+        #colorDiv.green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>JavaScript colorChanger() Hands-On</h1>
+            <button id="colorButton">Click Here!</button>
+            <div id="colorDiv"> :))</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const colorButton = document.getElementById('colorButton');
+            const colorDiv = document.getElementById('colorDiv');
+
+            colorButton.addEventListener('click', function () {
+                if (colorDiv.classList.contains('blue')) {
+                    colorDiv.classList.remove('blue');
+                    colorDiv.classList.add('green');
+                } else {
+                    colorDiv.classList.remove('green');
+                    colorDiv.classList.add('blue');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
